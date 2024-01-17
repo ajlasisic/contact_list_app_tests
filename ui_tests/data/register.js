@@ -6,3 +6,10 @@ export const registerUser = {
   firstName: "New User",
   lastName: "Test",
 };
+
+export const invalidSignUpData = {
+  email: "ajla",
+  password: 123,
+};
+
+

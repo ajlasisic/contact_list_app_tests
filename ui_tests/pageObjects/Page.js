@@ -30,7 +30,7 @@ export default class Page {
   }
   
   async verifyErrorMsgText (error,text) {
-    console.log(await error.getText(), text);
+    await this.waitForDisplayed(error)
     await expect(await error.getText()).toEqual(text);
   }
   async clickElement (element) {

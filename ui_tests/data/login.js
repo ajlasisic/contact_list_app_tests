@@ -1,4 +1,4 @@
-export const loginUser = {
+export const validLoginData = {
   email: "ajla.sisic19@gmail.com",
   password: "Test123",
 };
