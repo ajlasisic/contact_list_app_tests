@@ -1,4 +1,3 @@
-import LoginPage from "../pageObjects/LoginPage.js";
 import ContactListPage from "../pageObjects/ContactListPage.js";
 import { registerUser } from "../data/register.js";
 import * as AuthTasks from "../../tasks/ui/authTasks.js";

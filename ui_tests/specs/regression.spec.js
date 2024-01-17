@@ -3,6 +3,7 @@ import { invalidLoginData, validLoginData } from "../data/login.js";
 import { invalidSignUpData, registerUser } from "../data/register.js";
 import LoginPage from "../pageObjects/LoginPage.js";
 import * as AuthTasks from "../../tasks/ui/authTasks.js";
+import * as ContactsTasks from "../../tasks/ui/contactsTasks.js";
 import { errorMessages } from "../data/errors.js";
 import { signUpAndLogout } from "../../states/ui/uiStates.js";
 
@@ -10,6 +11,8 @@ describe("Regression test", () => {
   beforeEach(function () {
     browser.url("/");
   });
+  let test_email = registerUser.email;
+  let test_password = registerUser.password;
   it("Login with incorrect email", async () => {
     await AuthTasks.loginUser({
       email: invalidLoginData.email,
@@ -31,8 +34,6 @@ describe("Regression test", () => {
     );
   });
   it("Sign up with existing email", async () => {
-    let test_email = registerUser.email;
-    let test_password = registerUser.password;
     await signUpAndLogout(test_email, test_password);
     await AuthTasks.registerUser({
       firstName: registerUser.firstName,
@@ -68,6 +69,40 @@ describe("Regression test", () => {
     await RegisterPage.verifyErrorMsgText(
       RegisterPage.errorMessage,
       errorMessages.invalidEmailFormat
+    );
+  });
+  it("Sign up without any data", async () => {
+    await AuthTasks.registerUser({});
+    await RegisterPage.verifyErrorMsgText(
+      RegisterPage.errorMessage,
+      errorMessages.noDataEntered
+    );
+  });
+  it("Sign up without firstName and lastName fields", async () => {
+    await AuthTasks.registerUser({
+      email: registerUser.email,
+      password: registerUser.password,
+    });
+    await RegisterPage.verifyErrorMsgText(
+      RegisterPage.errorMessage,
+      errorMessages.noFirstAndLastNameAuth
+    );
+  });
+  it("Add contact without firstName and lastName fields", async () => {
+    await AuthTasks.loginUser({ email: test_email, password: test_password });
+    await ContactsTasks.addNewContact({});
+    await RegisterPage.verifyErrorMsgText(
+      RegisterPage.errorMessage,
+      errorMessages.noFirstAndLastNameContact
+    );
+    await AuthTasks.logoutUser();
+  });
+  it("Add contact without login", async () => {
+    await browser.url("/contactList");
+    await ContactsTasks.addNewContact({});
+    await RegisterPage.verifyErrorMsgText(
+      RegisterPage.errorMessage,
+      errorMessages.noLoginAddContact
     );
   });
 });
