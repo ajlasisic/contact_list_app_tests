@@ -9,6 +9,7 @@ import { signUpAndLogout } from "../../states/ui/uiStates.js";
 import { newContactData } from "../data/contacts.js";
 import ContactListPage from "../pageObjects/ContactListPage.js";
 import ContactDetailsPage from "../pageObjects/ContactDetailsPage.js";
+import { cleanUp } from "../../states/api/apiStates.js";
 
 describe("Regression test", () => {
   beforeEach(function () {
@@ -139,4 +140,7 @@ describe("Regression test", () => {
     await ContactListPage.clickElement(ContactListPage.firstNameTableCell)
     await ContactsTasks.deleteContact(await contact)
   });
+  afterAll(async function () {
+    await cleanUp(test_email, test_password)
+  })
 });

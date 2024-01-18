@@ -25,5 +25,27 @@ export async function loginUser({email, password, statusCode = 200, responseData
     expect(response.data).toContain(responseData)
   }
 }
+export async function logoutUser({token, statusCode = 200, responseData}) {
+  let response = await axios.post(`${API_URL_USERS}/logout`,  {}, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  verifyToEqual(response.status, statusCode);
+  if(responseData) {
+    expect(response.data).toContain(responseData)
+  }
+}
+export async function deleteUser({token, statusCode = 200, responseData}) {
+  let response = await axios.delete(`${API_URL_USERS}/me`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  verifyToEqual(response.status, statusCode);
+  if(responseData) {
+    expect(response.data).toContain(responseData)
+  }
+}
 
 

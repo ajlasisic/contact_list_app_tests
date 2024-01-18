@@ -4,6 +4,7 @@ import * as AuthTasks from "../../tasks/ui/authTasks.js";
 import * as ContactsTasks from "../../tasks/ui/contactsTasks.js";
 import { newContactData } from "../data/contacts.js";
 import { signUpAndLogout } from "../../states/ui/uiStates.js";
+import { cleanUp } from "../../states/api/apiStates.js";
 
 describe("Smoke test", () => {
   beforeEach(function () {
@@ -26,5 +27,6 @@ describe("Smoke test", () => {
       email: test_email
     });
     await ContactListPage.verifyContactEmail(test_email)
+    await cleanUp(test_email, test_password)
   });
 });
