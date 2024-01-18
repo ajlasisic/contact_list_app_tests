@@ -24,7 +24,7 @@ class ContactListPage extends Page {
       "https://thinking-tester-contact-list.herokuapp.com/contactList"
     );
   }
-  async verifyAddNewContact(email) {
+  async verifyContactEmail(email) {
     await this.waitForDisplayed(this.contactsTable);
     await expect(await this.emailTableCell.getText()).toEqual(email);
   }

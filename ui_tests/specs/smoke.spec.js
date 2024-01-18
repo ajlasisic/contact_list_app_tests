@@ -25,6 +25,6 @@ describe("Smoke test", () => {
       lastName: newContactData.lastName,
       email: test_email
     });
-    await ContactListPage.verifyAddNewContact(test_email)
+    await ContactListPage.verifyContactEmail(test_email)
   });
 });

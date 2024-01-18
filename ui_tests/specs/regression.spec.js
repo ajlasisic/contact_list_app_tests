@@ -131,7 +131,7 @@ describe("Regression test", () => {
       email: test_email
     })
     await ContactDetailsPage.clickElement(ContactDetailsPage.returnToContactListButton)
-    await ContactListPage.verifyAddNewContact(test_email)
+    await ContactListPage.verifyContactEmail(test_email)
   });
   it("Delete contact", async () => {
     await AuthTasks.loginUser({ email: test_email, password: test_password });
