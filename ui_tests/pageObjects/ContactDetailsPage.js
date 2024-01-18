@@ -9,6 +9,9 @@ class ContactDetailsPage extends Page {
   get deleteContactButton() {
     return $("#delete");
   }
+  get returnToContactListButton() {
+    return $("#return");
+  }
   get inputFirstName() {
     return $("#firstName");
   }

@@ -8,6 +8,7 @@ import { errorMessages } from "../data/errors.js";
 import { signUpAndLogout } from "../../states/ui/uiStates.js";
 import { newContactData } from "../data/contacts.js";
 import ContactListPage from "../pageObjects/ContactListPage.js";
+import ContactDetailsPage from "../pageObjects/ContactDetailsPage.js";
 
 describe("Regression test", () => {
   beforeEach(function () {
@@ -122,6 +123,15 @@ describe("Regression test", () => {
       RegisterPage.errorMessage,
       errorMessages.noDataEditContact
     );
+  });
+  it("Edit contact", async () => {
+    await AuthTasks.loginUser({ email: test_email, password: test_password });
+    await ContactListPage.clickElement(ContactListPage.firstNameTableCell)
+    await ContactsTasks.editContactData({
+      email: test_email
+    })
+    await ContactDetailsPage.clickElement(ContactDetailsPage.returnToContactListButton)
+    await ContactListPage.verifyAddNewContact(test_email)
   });
   it("Delete contact", async () => {
     await AuthTasks.loginUser({ email: test_email, password: test_password });
