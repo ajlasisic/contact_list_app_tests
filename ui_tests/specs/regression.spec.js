@@ -6,6 +6,10 @@ import * as AuthTasks from "../../tasks/ui/authTasks.js";
 import * as ContactsTasks from "../../tasks/ui/contactsTasks.js";
 import { errorMessages } from "../data/errors.js";
 import { signUpAndLogout } from "../../states/ui/uiStates.js";
+import { newContactData } from "../data/contacts.js";
+import ContactListPage from "../pageObjects/ContactListPage.js";
+import AddContactPage from "../pageObjects/AddContactPage.js";
+import ContactDetailsPage from "../pageObjects/ContactDetailsPage.js";
 
 describe("Regression test", () => {
   beforeEach(function () {
@@ -103,6 +107,24 @@ describe("Regression test", () => {
     await RegisterPage.verifyErrorMsgText(
       RegisterPage.errorMessage,
       errorMessages.noLoginAddContact
+    );
+  });
+  it("Edit contact - delete required fields", async () => {
+    await AuthTasks.loginUser({ email: test_email, password: test_password });
+    await ContactsTasks.addNewContact({
+      firstName: newContactData.firstName,
+      lastName: newContactData.lastName
+    });
+    await ContactListPage.clickElement(ContactListPage.firstNameTableCell)
+    await ContactDetailsPage.waitForDisplayed(ContactDetailsPage.editContactButton)
+    await ContactDetailsPage.clickElement(ContactDetailsPage.editContactButton)
+    await ContactDetailsPage.editContact({
+      firstName: " ",
+      lastName: " "
+    })
+    await RegisterPage.verifyErrorMsgText(
+      RegisterPage.errorMessage,
+      errorMessages.noDataEditContact
     );
   });
 });

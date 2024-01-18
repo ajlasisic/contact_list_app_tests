@@ -14,7 +14,9 @@ class ContactListPage extends Page {
   get emailTableCell() {
     return $('#myTable > tr  > td:nth-child(4)')
   }
-
+  get firstNameTableCell() {
+    return $('#myTable > tr  > td:nth-child(2)')
+  }
 
   async verifyAuth() {
     await this.waitForDisplayed(this.logoutButton);

@@ -10,7 +10,11 @@ export const errorMessages = {
   invalidEmailFormat: "User validation failed: email: Email is invalid",
   noDataEntered:
     "User validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., email: Email is invalid, password: Path `password` is required.",
-    noFirstAndLastNameAuth: "User validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required.",
-    noFirstAndLastNameContact: "Contact validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required.",
-    noLoginAddContact: "undefined"
+  noFirstAndLastNameAuth:
+    "User validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required.",
+  noFirstAndLastNameContact:
+    "Contact validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required.",
+  noLoginAddContact: "undefined",
+  noDataEditContact:
+    "Validation failed: lastName: Path `lastName` is required., firstName: Path `firstName` is required.",
 };
