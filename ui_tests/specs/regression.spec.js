@@ -8,8 +8,6 @@ import { errorMessages } from "../data/errors.js";
 import { signUpAndLogout } from "../../states/ui/uiStates.js";
 import { newContactData } from "../data/contacts.js";
 import ContactListPage from "../pageObjects/ContactListPage.js";
-import AddContactPage from "../pageObjects/AddContactPage.js";
-import ContactDetailsPage from "../pageObjects/ContactDetailsPage.js";
 
 describe("Regression test", () => {
   beforeEach(function () {
@@ -116,9 +114,7 @@ describe("Regression test", () => {
       lastName: newContactData.lastName
     });
     await ContactListPage.clickElement(ContactListPage.firstNameTableCell)
-    await ContactDetailsPage.waitForDisplayed(ContactDetailsPage.editContactButton)
-    await ContactDetailsPage.clickElement(ContactDetailsPage.editContactButton)
-    await ContactDetailsPage.editContact({
+    await ContactsTasks.editContactData({
       firstName: " ",
       lastName: " "
     })
@@ -126,5 +122,11 @@ describe("Regression test", () => {
       RegisterPage.errorMessage,
       errorMessages.noDataEditContact
     );
+  });
+  it("Delete contact", async () => {
+    await AuthTasks.loginUser({ email: test_email, password: test_password });
+    let contact = (await ContactListPage.firstNameTableCell).getText()
+    await ContactListPage.clickElement(ContactListPage.firstNameTableCell)
+    await ContactsTasks.deleteContact(await contact)
   });
 });

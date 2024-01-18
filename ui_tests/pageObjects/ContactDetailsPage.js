@@ -1,9 +1,13 @@
 import { $ } from "@wdio/globals";
 import Page from "./Page.js";
+import ContactListPage from "./ContactListPage.js";
 
 class ContactDetailsPage extends Page {
   get editContactButton() {
     return $("#edit-contact");
+  }
+  get deleteContactButton() {
+    return $("#delete");
   }
   get inputFirstName() {
     return $("#firstName");
@@ -92,6 +96,12 @@ class ContactDetailsPage extends Page {
       await this.inputLastName.setValue(country);
     }
     await this.submitButton.click();
+  }
+  async deleteContact() {
+    await this.waitForDisplayed(this.deleteContactButton)
+    await this.clickElement(this.deleteContactButton)
+    await browser.acceptAlert()
+    await this.waitForDisplayed(ContactListPage.addNewContactButton)
   }
 }
 export default new ContactDetailsPage();
