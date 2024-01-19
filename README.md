@@ -1,7 +1,7 @@
 # Contact List App UI and API automation tests 
 
-Welcome to the Contact List App Tests repository! This repository contains automated API and UI tests (Smoke and Regression) for the Contact List application (https://thinking-tester-contact-list.herokuapp.com/). 
-It also contains two excel spreadsheets with UI and API test cases (Smoke and Regression) and a bug report.
+Welcome to the Contact List App Tests repository! This repository contains automated API and UI tests (Smoke and Regression) for the Contact List application (https://thinking-tester-contact-list.herokuapp.com/). The tests are automated using JavaScript programming language and WebdriverIO and Jasmine testing frameworks. Axios library is used for API tests.
+This file also contains links to two excel spreadsheets with UI and API test cases (Smoke and Regression) and a bug report.
 
 ## Table of Contents
 
@@ -36,6 +36,6 @@ npm install
 - UI Smoke test: npx wdio wdio.conf.js --spec .\ui_tests\specs\smoke.spec.js
 - UI Regression test: npx wdio wdio.conf.js --spec .\ui_tests\specs\regression.spec.js
 ## Test case documents
-- UI: https://docs.google.com/spreadsheets/d/1OfKRQ0rYE-Kdbvg8iqhIy81gURhVzWq4CjNQU37hAxI/edit?usp=sharing
-- API: https://docs.google.com/spreadsheets/d/1w0KnviP7ywT_82KT8mUBqpQhJvKJLo6imm8hlJRhIu8/edit?usp=sharing
+- UI test cases and Bug report: https://docs.google.com/spreadsheets/d/1OfKRQ0rYE-Kdbvg8iqhIy81gURhVzWq4CjNQU37hAxI/edit?usp=sharing
+- API test cases: https://docs.google.com/spreadsheets/d/1w0KnviP7ywT_82KT8mUBqpQhJvKJLo6imm8hlJRhIu8/edit?usp=sharing
 
