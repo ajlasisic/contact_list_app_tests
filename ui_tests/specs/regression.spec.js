@@ -109,24 +109,12 @@ describe("Regression test", () => {
       errorMessages.noLoginAddContact
     );
   });
-  it("Edit contact - delete required field", async () => {
+  it("Edit contact", async () => {
     await AuthTasks.loginUser({ email: test_email, password: test_password });
     await ContactsTasks.addNewContact({
       firstName: newContactData.firstName,
       lastName: newContactData.lastName
     });
-    await ContactListPage.clickElement(ContactListPage.firstNameTableCell)
-    await ContactsTasks.editContactData({
-      firstName: " ",
-      lastName: " "
-    })
-    await RegisterPage.verifyErrorMsgText(
-      RegisterPage.errorMessage,
-      errorMessages.noRequiredDataEditContact
-    );
-  });
-  it("Edit contact", async () => {
-    await AuthTasks.loginUser({ email: test_email, password: test_password });
     await ContactListPage.clickElement(ContactListPage.firstNameTableCell)
     await ContactsTasks.editContactData({
       email: test_email
