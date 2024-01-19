@@ -32,8 +32,8 @@ export async function register(firstName, lastName, email, password) {
   token = data.token;
   return {token, id_register, email_user};
 }
+
 export async function cleanUp(email, password) {
   let {token} = await login(email, password)
-  console.log(token)
   await AuthAPI.deleteUser(token)
 }

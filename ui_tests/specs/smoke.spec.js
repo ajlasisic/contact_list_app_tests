@@ -27,6 +27,5 @@ describe("Smoke test", () => {
       email: test_email
     });
     await ContactListPage.verifyContactEmail(test_email)
-    await cleanUp(test_email, test_password)
   });
 });

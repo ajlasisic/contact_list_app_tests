@@ -109,7 +109,7 @@ describe("Regression test", () => {
       errorMessages.noLoginAddContact
     );
   });
-  it("Edit contact - delete required fields", async () => {
+  it("Edit contact - delete required field", async () => {
     await AuthTasks.loginUser({ email: test_email, password: test_password });
     await ContactsTasks.addNewContact({
       firstName: newContactData.firstName,
@@ -122,7 +122,7 @@ describe("Regression test", () => {
     })
     await RegisterPage.verifyErrorMsgText(
       RegisterPage.errorMessage,
-      errorMessages.noDataEditContact
+      errorMessages.noRequiredDataEditContact
     );
   });
   it("Edit contact", async () => {
@@ -140,7 +140,4 @@ describe("Regression test", () => {
     await ContactListPage.clickElement(ContactListPage.firstNameTableCell)
     await ContactsTasks.deleteContact(await contact)
   });
-  afterAll(async function () {
-    await cleanUp(test_email, test_password)
-  })
 });

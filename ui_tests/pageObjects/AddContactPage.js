@@ -62,31 +62,31 @@ class AddContactPage extends Page {
       await this.inputLastName.setValue(lastName);
     }
     if (dateOfBirth) {
-      await this.inputLastName.setValue(dateOfBirth);
+      await this.inputDOB.setValue(dateOfBirth);
     }
     if (email) {
       await this.inputEmail.setValue(email);
     }
     if (phone) {
-      await this.inputPassword.setValue(phone);
+      await this.inputPhone.setValue(phone);
     }
     if (street1) {
-      await this.inputLastName.setValue(street1);
+      await this.inputStreet1.setValue(street1);
     }
     if (street2) {
-      await this.inputLastName.setValue(street2);
+      await this.inputStreet2.setValue(street2);
     }
     if (city) {
-      await this.inputLastName.setValue(city);
+      await this.inputCity.setValue(city);
     }
     if (state) {
-      await this.inputLastName.setValue(state);
+      await this.inputState.setValue(state);
     }
     if (postalCode) {
-      await this.inputLastName.setValue(postalCode);
+      await this.inputPostalCode.setValue(postalCode);
     }
     if (country) {
-      await this.inputLastName.setValue(country);
+      await this.inputCountry.setValue(country);
     }
     await this.submitButton.click();
   }

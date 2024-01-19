@@ -15,6 +15,5 @@ export const errorMessages = {
   noFirstAndLastNameContact:
     "Contact validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required.",
   noLoginAddContact: "undefined",
-  noDataEditContact:
-    "Validation failed: lastName: Path `lastName` is required., firstName: Path `firstName` is required.",
+  noRequiredDataEditContact: "Validation failed: lastName: Path `lastName` is required., firstName: Path `firstName` is required.",
 };

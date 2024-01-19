@@ -66,37 +66,48 @@ class ContactDetailsPage extends Page {
   }) {
     await this.waitForDisplayed(this.submitButton)
     if (firstName) {
+      await this.clickElement(this.inputFirstName)
       await this.inputFirstName.setValue(firstName);
     }
     if (lastName) {
+      await this.clickElement(this.inputLastName)
       await this.inputLastName.setValue(lastName);
     }
     if (dateOfBirth) {
-      await this.inputLastName.setValue(dateOfBirth);
+      await this.clickElement(this.inputDOB)
+      await this.inputDOB.setValue(dateOfBirth);
     }
     if (email) {
+      await this.clickElement(this.inputEmail)
       await this.inputEmail.setValue(email);
     }
     if (phone) {
-      await this.inputPassword.setValue(phone);
+      await this.clickElement(this.inputPhone)
+      await this.inputPhone.setValue(phone);
     }
     if (street1) {
-      await this.inputLastName.setValue(street1);
+      await this.clickElement(this.inputStreet1)
+      await this.inputStreet1.setValue(street1);
     }
     if (street2) {
-      await this.inputLastName.setValue(street2);
+      await this.clickElement(this.inputStreet2)
+      await this.inputStreet2.setValue(street2);
     }
     if (city) {
-      await this.inputLastName.setValue(city);
+      await this.clickElement(this.inputCity)
+      await this.inputCity.setValue(city);
     }
     if (state) {
-      await this.inputLastName.setValue(state);
+      await this.clickElement(this.inputState)
+      await this.inputState.setValue(state);
     }
     if (postalCode) {
-      await this.inputLastName.setValue(postalCode);
+      await this.clickElement(this.inputPostalCode)
+      await this.inputPostalCode.setValue(postalCode);
     }
     if (country) {
-      await this.inputLastName.setValue(country);
+      await this.clickElement(this.inputCountry)
+      await this.inputCountry.setValue(country);
     }
     await this.submitButton.click();
   }
