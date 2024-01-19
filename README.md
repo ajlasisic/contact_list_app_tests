@@ -1,6 +1,6 @@
 # Contact List App UI and API automation tests 
 
-Welcome to the Contact List App Tests repository! This repository contains automated API and UI tests for the Contact List application (https://thinking-tester-contact-list.herokuapp.com/). 
+Welcome to the Contact List App Tests repository! This repository contains automated API and UI tests (Smoke and Regression) for the Contact List application (https://thinking-tester-contact-list.herokuapp.com/). 
 It also contains two excel spreadsheets with UI and API test cases (Smoke and Regression) and a bug report.
 
 ## Table of Contents
